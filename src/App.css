@@ -7,18 +7,23 @@ body {
     background-position: center center;
     background-attachment: fixed;
     background-size: cover;
-  
-    
-
-
-}
-
-.text-center {
-
-    text-align: center;
     font-family: monospace;
-    font-size: 40px
+
 }
+
+.icons {
+    align-content: right;
+}
+
+h1 {
+    margin: 40px;
+    font-size: 40px;
+}
+
+button {
+    background-color:pink;
+}
+  
 
 .typewriter {
     max-width: 100%;
