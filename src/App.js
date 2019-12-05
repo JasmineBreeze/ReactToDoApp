@@ -7,7 +7,42 @@ import ToDoList from './Components/ToDoList';
 import uuid from 'uuid';
 
 
-function App() {
+class App extends Component {
+  state={
+items:[],
+id:uuid(),
+item:'',
+ediit: false
+
+  }
+
+  handleChange = (e) => {
+    this.setState({
+      item:e.target.value
+    })
+  }
+
+  handleSubmit = (e)=> {
+ e.preventDefault();
+
+const newItem = {
+  id:this.state.id,
+  title:this.state.item
+
+}
+
+const updatedItems = [...this.state.items, newItem];
+
+this.setState({
+  items:updatedItems,
+  item:'',
+  id:uuid(),
+  editItem: false
+});
+
+
+  };
+  render() {
   return (
     <div className="App">
       <div className="container">
@@ -15,13 +50,18 @@ function App() {
           <Date />
           <div className="col-10 mx-auto col-md-8 mt-4">
             <h1 className="text-center">My To Do List</h1><br></br>
-            <Todoinput />
-            <ToDoList />
+            <Todoinput  
+            item={this.state.item} 
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
+            />
+            <ToDoList items={this.state.items}/>
           </div>
         </div>
       </div>
     </div>
   );
+}
 }
 
 

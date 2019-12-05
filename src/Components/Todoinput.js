@@ -4,10 +4,11 @@ import React, { Component } from "react"
 export default class Todoinput
     extends Component {
     render() {
+        const { item, handleChange, handleSubmit } = this.props
         return (
             <div>
-                <form>                 
-                    <input type="text" className="form-control"  placeholder="What Do You Need to do?"/>  <br></br> 
+                <form onSubmit={handleSubmit}>
+                    <input type="text" className="form-control" placeholder="What Do You Need to do?" value={item} onChange={handleChange} />  <br></br>
                     <button type="submit" className="btn btn-block">Add Item</button> <br></br>
                 </form>
             </div>

@@ -5,9 +5,15 @@ import ToDoItem from './ToDoItem';
 export default class ToDoList 
 extends Component {
     render() {
+        const {items} = this.props;
         return (
             <ul className="list-group my-5">
-                <ToDoItem />
+                {items.map(item => {
+                        return <ToDoItem key={item.id} title={item.title} />;
+                        
+                    } )}
+                
+
                 <button type="button" className="btn btn-block">Clear List</button>
             </ul>
         )

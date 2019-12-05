@@ -7,7 +7,7 @@ class Date extends Component {
             <div class="container">
                 <div class="col-12 lg-6">
                     <div>
-                        <p class="typewriter">{Moment().format('LL')}</p>
+                        <h4 class="typewriter">{Moment().format('LL')}</h4>
                     </div>
                 </div >
             </div >

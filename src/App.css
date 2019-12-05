@@ -11,6 +11,10 @@ body {
 
 }
 
+p {
+color: black;
+}
+
 .icons {
     align-content: right;
 }
