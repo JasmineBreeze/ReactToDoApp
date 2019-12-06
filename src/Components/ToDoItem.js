@@ -6,9 +6,11 @@ export default class ToDoItem
     render() {
         const {title} = this.props
         return (
+            <div class="flex-container">
             <li className="list-group-item d-flex justify-content-between my-2">
-                <p>{title}</p>
-                <div className="icons">
+                <p> {title}</p>
+            
+               
                     <span className="text-success mx-auto">
                         <i className="fas fa-pen"></i>
                     </span>
@@ -16,9 +18,9 @@ export default class ToDoItem
                         <i className="fas fa-trash"></i>
                     </span>
 
-                </div>
+           
             </li>
-
+</div>
         )
     }
 }
