@@ -5,7 +5,7 @@ import ToDoItem from './ToDoItem';
 export default class ToDoList 
 extends Component {
     render() {
-        const {items} = this.props;
+        const {items, clearList } = this.props;
         return (
             <ul className="list-group my-5">
                 {items.map(item => {
@@ -14,7 +14,9 @@ extends Component {
                     } )}
                 
 
-                <button type="button" className="btn btn-block">Clear List</button>
+                <button type="button" className="btn btn-block"
+                onClick={clearList}
+                >Clear List</button>
             </ul>
         )
     }

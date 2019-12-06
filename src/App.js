@@ -42,6 +42,13 @@ this.setState({
 
 
   };
+
+  clearList = ()=>{
+    this.setState({
+      items:[]
+    })
+  }
+
   render() {
   return (
     <div className="App">
@@ -55,7 +62,7 @@ this.setState({
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
             />
-            <ToDoList items={this.state.items}/>
+            <ToDoList items={this.state.items} clearList={this.clearList}/>
           </div>
         </div>
       </div>
