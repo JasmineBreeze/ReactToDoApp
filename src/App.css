@@ -20,8 +20,14 @@ body {
 
   }
 
+  .clear {
+      margin-top: 20px;
+  }
+
   .list-group-item {
     text-align: center;
+    word-wrap: break-word;
+    background: lightcoral;
 
   }
 
@@ -32,10 +38,29 @@ body {
       margin-left: 300px;;
   }
 
+button {
+    background: coral;
+}
+  .buttons {
+      margin-top: 20px;
+      color: black;
+      font-weight: bolder;
+   
+     
+      
+  }
+
+  .btn {
+      border-style: solid;
+      border: black;
+      border-width: 5px;
+  }
+ 
  
 
 p {
 color: black;
+margin: 10px;
 }
 
 .icons {

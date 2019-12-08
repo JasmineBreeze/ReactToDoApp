@@ -14,7 +14,7 @@ extends Component {
                     } )}
                 
 
-                <button type="button" className="btn btn-block"
+                <button type="button" className="clear btn btn-block"
                 onClick={clearList}
                 >Clear List</button>
             </ul>
