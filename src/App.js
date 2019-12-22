@@ -8,67 +8,93 @@ import uuid from 'uuid';
 
 
 class App extends Component {
-  state={
-items:[],
-id:uuid(),
-item:'',
-ediit: false
+  state = {
+    items: [],
+    id: uuid(),
+    item: '',
+    edit: false
 
   }
 
   handleChange = (e) => {
     this.setState({
-      item:e.target.value
+      item: e.target.value
     })
   }
 
-  handleSubmit = (e)=> {
- e.preventDefault();
+  handleSubmit = (e) => {
+    e.preventDefault();
 
-const newItem = {
-  id:this.state.id,
-  title:this.state.item
+    const newItem = {
+      id: this.state.id,
+      title: this.state.item
 
-}
+    }
 
-const updatedItems = [...this.state.items, newItem];
+    const updatedItems = [...this.state.items, newItem];
 
-this.setState({
-  items:updatedItems,
-  item:'',
-  id:uuid(),
-  editItem: false
-});
+    this.setState({
+      items: updatedItems,
+      item: '',
+      id: uuid(),
+      editItem: false
+    });
 
 
   };
 
-  clearList = ()=>{
+  clearList = () => {
     this.setState({
-      items:[]
+      items: []
     })
   }
 
+
+  handleDelete = id => {
+    const filteredItems = this.state.items.filter(item => item.id !== id)
+    this.setState({
+      items: filteredItems
+    })
+  }
+
+  handleEdit = id => {
+    const filteredItems = this.state.items.filter(item => item.id !== id)
+
+    const selectedItem = this.state.items.find(item => item.id === id)
+    this.setState({
+      items: filteredItems,
+      item: selectedItem.title,
+      editItem: true,
+      id: id
+
+    });
+  }
+
   render() {
-  return (
-    <div className="App">
-      <div className="container">
-        <div className="row">
-          <Date />
-          <div className="col-10 mx-auto col-md-8 mt-4">
-            <h1 className="text-center">My To Do List</h1><br></br>
-            <Todoinput  
-            item={this.state.item} 
-            handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit}
-            />
-            <ToDoList items={this.state.items} clearList={this.clearList}/>
+    return (
+      <div className="App">
+        <div className="container">
+          <div className="row">
+            <Date />
+            <div className="col-10 mx-auto col-md-8 mt-4">
+              <h1 className="text-center">My To Do List</h1><br></br>
+              <Todoinput
+                item={this.state.item}
+                handleChange={this.handleChange}
+                handleSubmit={this.handleSubmit}
+                editItem={this.state.editItem}
+              />
+              <ToDoList
+                items={this.state.items}
+                clearList={this.clearList}
+                handleDelete={this.handleDelete}
+                handleEdit={this.handleEdit} />
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  );
-}
+    );
+  }
 }
 
 
