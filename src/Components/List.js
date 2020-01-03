@@ -22,7 +22,6 @@ class List extends Component {
         })
     }
 
-    onDelete = 
 
     render() {
         return (
