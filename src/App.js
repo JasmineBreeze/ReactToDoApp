@@ -7,18 +7,26 @@ import ToDoList from './Components/ToDoList';
 import uuid from 'uuid';
 
 
+
 class App extends Component {
   state = {
     items: [],
     id: uuid(),
     item: '',
-    edit: false
+    dateDue: '',
+    edit: false,
 
   }
 
-  handleChange = (e) => {
+  handleItemChange = (e) => {
     this.setState({
       item: e.target.value
+    })
+  }
+
+  handleDateChange = (e) => {
+    this.setState({
+      dateDue: e.target.value
     })
   }
 
@@ -27,8 +35,8 @@ class App extends Component {
 
     const newItem = {
       id: this.state.id,
-      title: this.state.item
-
+      title: this.state.item,
+      date: this.state.dateDue,
     }
 
     const updatedItems = [...this.state.items, newItem];
@@ -36,8 +44,9 @@ class App extends Component {
     this.setState({
       items: updatedItems,
       item: '',
+      dateDue: '',
       id: uuid(),
-      editItem: false
+      editItem: false,
     });
 
 
@@ -65,10 +74,12 @@ class App extends Component {
       items: filteredItems,
       item: selectedItem.title,
       editItem: true,
-      id: id
+      id: id,
+      dateDue: '',
 
     });
   }
+
 
   render() {
     return (
@@ -80,7 +91,9 @@ class App extends Component {
               <h1 className="text-center">My To Do List</h1><br></br>
               <Todoinput
                 item={this.state.item}
-                handleChange={this.handleChange}
+                dateDue={this.state.dateDue}
+                handleChange={this.handleItemChange}
+                handleDate={this.handleDateChange}
                 handleSubmit={this.handleSubmit}
                 editItem={this.state.editItem}
               />

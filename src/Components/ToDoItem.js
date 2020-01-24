@@ -14,19 +14,22 @@ export default class ToDoItem
           }
 
     render() {
-        const { title, handleDelete, handleEdit } = this.props
+        const { title, date, handleDelete, handleEdit } = this.props
         return (
             <div className="row">
-                <div className="col-6 col-sm-6 col-xs-6">
+                <div className="col-5 col-sm-5 col-xs-5">
                     <p style={{background: this.state.color}} className="list-group-item">{title}</p>
                 </div>
-                <div className="buttons col-2 col-sm-2 col-xs-2">
+                <div className="col-4 col-sm-4 col-xs-4">
+                    <p style={{background: this.state.color}} className="list-group-item">{date}</p>
+                </div>
+                <div className="buttons col-1 col-sm-1 col-xs-1">
                     <button onClick={handleEdit} type="button">Edit
                 </button>  </div>
-                <div className="buttons col-2 col-sm-2 col-xs-2" >
+                <div className="buttons col-1 col-sm-1 col-xs-1" >
                     <button onClick={this.changeColor} type="button">Done</button>
                 </div>
-                <div className="buttons col-2 col-sm-2 col-xs-2" >
+                <div className="buttons col-1 col-sm-1 col-xs-1" >
                     <button onClick={handleDelete} type="button">Delete</button>
                 </div>
                 
