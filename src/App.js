@@ -5,16 +5,28 @@ import Date from './Components/date';
 import Todoinput from './Components/Todoinput';
 import ToDoList from './Components/ToDoList';
 import uuid from 'uuid';
+import axios from "axios";
 
 
 
 class App extends Component {
   state = {
     items: [],
-    id: uuid(),
-    item: '',
-    dateDue: '',
-    edit: false,
+  };
+
+  componentDidMount() {
+    axios.get("https://bm3fja74kk.execute-api.eu-west-1.amazonaws.com/dev/tasks")
+    .then((response) => {
+        const t = response.data.tasks;
+        this.setState({
+          items: t
+        })
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+    //fetch the tasks making a GET Request 
+    //set them as sate of app 
 
   }
 
@@ -82,6 +94,7 @@ class App extends Component {
 
 
   render() {
+
     return (
       <div className="App">
         <div className="container">
